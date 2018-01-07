@@ -52,5 +52,11 @@ namespace ASP_Core_EF.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            return View(_Student.GetStudent(Id));
+        }
+
     }
 }

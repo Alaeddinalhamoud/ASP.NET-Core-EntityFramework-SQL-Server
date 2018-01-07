@@ -38,6 +38,10 @@ namespace ASP_Core_EF.Models
 
         public Gender Genders { get; set; }
 
+       
+
+        public ICollection<Enrollment> Enrollments { get; set; }
+
     }
 
 }

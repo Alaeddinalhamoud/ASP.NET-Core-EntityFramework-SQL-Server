@@ -9,9 +9,9 @@ namespace ASP_Core_EF.Services
    public    interface IEnrollment
     {
         IEnumerable<Enrollment> GetEnrollments { get; }
-        Enrollment GetEnrollment(int Id);
+        Enrollment GetEnrollment(int? Id);
         void Add(Enrollment _Enrollment);
-        void Remove(int Id);
+        void Remove(int? Id);
 
     }
 }

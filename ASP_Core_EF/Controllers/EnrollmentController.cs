@@ -42,5 +42,19 @@ namespace ASP_Core_EF.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Delete(int? Id)
+        {
+            Enrollment model = _Enrollment.GetEnrollment(Id);
+            return View(model);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeleteConfirm(int? Id)
+        {
+            _Enrollment.Remove(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

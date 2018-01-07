@@ -31,5 +31,9 @@ namespace ASP_Core_EF.Models
         public DateTime EndDate { get; set; }
         [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
+
+
+        public Student Students { get; set; }
+        public Course Courses { get; set; }
     }
 }
