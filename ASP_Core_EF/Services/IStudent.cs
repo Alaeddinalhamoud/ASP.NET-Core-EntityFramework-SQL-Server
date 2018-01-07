@@ -9,8 +9,8 @@ namespace ASP_Core_EF.Services
    public interface IStudent
     {
         IEnumerable<Student> GetStudents { get; }
-        Student GetStudent(int Id);
+        Student GetStudent(int? Id);
         void Add(Student _Student);
-        void Remove(int Id);
+        void Remove(int? Id);
     }
 }

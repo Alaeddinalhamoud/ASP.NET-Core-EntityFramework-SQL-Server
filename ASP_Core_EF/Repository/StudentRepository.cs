@@ -23,13 +23,13 @@ namespace ASP_Core_EF.Repository
             db.SaveChanges();
         }
 
-        public Student GetStudent(int Id)
+        public Student GetStudent(int? Id)
         {
             Student dbEntity = db.Students.Find(Id);
             return dbEntity;
         }
 
-        public void Remove(int Id)
+        public void Remove(int? Id)
         {
             Student dbEntity = db.Students.Find(Id);
             db.Students.Remove(dbEntity);
