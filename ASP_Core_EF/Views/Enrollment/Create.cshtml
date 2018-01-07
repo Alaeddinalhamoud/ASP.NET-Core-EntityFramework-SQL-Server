@@ -14,12 +14,16 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="StudentId" class="control-label"></label>
-                <input asp-for="StudentId" class="form-control" />
+                <select asp-for="StudentId"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Student,"StudentId","FirstName"))"></select>
                 <span asp-validation-for="StudentId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CourseId" class="control-label"></label>
-                <input asp-for="CourseId" class="form-control" />
+                <select asp-for="CourseId"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Course,"CourseId","CourseName"))"></select>
                 <span asp-validation-for="CourseId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +38,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Grade" class="control-label"></label>
-                <input asp-for="Grade" class="form-control" />
+                <select asp-for="Grade" class="form-control">
+                    <option value="">No Grade</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="F">F</option>
+                </select>
                 <span asp-validation-for="Grade" class="text-danger"></span>
             </div>
             <div class="form-group">

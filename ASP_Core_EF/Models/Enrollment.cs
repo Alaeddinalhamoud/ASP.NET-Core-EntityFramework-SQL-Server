@@ -23,9 +23,11 @@ namespace ASP_Core_EF.Models
         public int CourseId { get; set; }
         [Required(ErrorMessage = "Start Date is Required")]
         [DisplayName("Start Date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         [Required(ErrorMessage = "End Date is Required")]
         [DisplayName("End Date")]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
         [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }

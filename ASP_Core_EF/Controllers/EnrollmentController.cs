@@ -11,10 +11,14 @@ namespace ASP_Core_EF.Controllers
     public class EnrollmentController : Controller
     {
         private readonly IEnrollment _Enrollment;
+        private readonly ICourse _Cousre;
+        private readonly IStudent _Student;
 
-        public EnrollmentController(IEnrollment _IEnrollment)
+        public EnrollmentController(IEnrollment _IEnrollment,ICourse _ICousre, IStudent _IStudent)
         {
             _Enrollment = _IEnrollment;
+            _Cousre = _ICousre;
+            _Student = _IStudent;
         }
         public IActionResult Index()
         {
@@ -24,6 +28,8 @@ namespace ASP_Core_EF.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Course = _Cousre.GetCourses;
+            ViewBag.Student = _Student.GetStudents;
             return View();
         }
         [HttpPost]

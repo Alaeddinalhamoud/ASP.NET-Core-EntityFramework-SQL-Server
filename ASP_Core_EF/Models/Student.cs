@@ -18,7 +18,7 @@ namespace ASP_Core_EF.Models
         public int StudentId { get; set; }
         [DisplayName("First Name")]
         [Required(ErrorMessage = "First Name is Required.")]
-        public string FisrtName { get; set; }
+        public string FirstName { get; set; }
         [DisplayName("Last Name")]
         [Required(ErrorMessage = "Last Name is Required.")]
         public string LastName { get; set; }
