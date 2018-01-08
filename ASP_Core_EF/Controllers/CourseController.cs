@@ -59,6 +59,12 @@ namespace ASP_Core_EF.Controllers
            
         }
 
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+
+            return View(_Course.GetCourse(Id));
+        }
    
 
     }

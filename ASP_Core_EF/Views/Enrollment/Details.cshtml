@@ -1,0 +1,109 @@
+﻿@model ASP_Core_EF.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Enrollment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Courses.CourseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Students)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Students.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Students)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                           FirstName
+                        </th>
+                        <th>
+                           LastName
+                        </th>
+                        <th>
+                           DOB
+                        </th>
+                        <th>
+                           GenderId 
+                        </th>
+                        <th>
+                           RegistrationDate
+                        </th>
+                        <th>
+                           Status
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.StudentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DOB)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genders.GenderName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegistrationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EnrollmentId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

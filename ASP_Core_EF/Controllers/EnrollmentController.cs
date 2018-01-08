@@ -56,5 +56,7 @@ namespace ASP_Core_EF.Controllers
             _Enrollment.Remove(Id);
             return RedirectToAction("Index");
         }
+
+       
     }
 }

@@ -17,5 +17,7 @@ namespace ASP_Core_EF.Models
         [Required(ErrorMessage = "Credits is Required.")]
         public string Credits { get; set; }
 
+        public ICollection<Enrollment> Enrollments { get; set; }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASP_Core_EF.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Core_EF.Repository
 {
@@ -24,7 +25,7 @@ namespace ASP_Core_EF.Repository
 
         public Course GetCourse(int? Id)
         {
-            return db.Courses.Find(Id);
+            return db.Courses.Include(e => e.Enrollments).ThenInclude(s =>s.Students).SingleOrDefault(a => a.CourseId == Id);
         }
 
         public void Remove(int? Id)
