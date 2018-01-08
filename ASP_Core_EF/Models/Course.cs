@@ -13,8 +13,10 @@ namespace ASP_Core_EF.Models
         public int CourseId { get; set; }
          [DisplayName("Course Name")]
          [Required(ErrorMessage = "Course Name is Required.")]
+         [StringLength(10)]
         public string CourseName { get; set; }
         [Required(ErrorMessage = "Credits is Required.")]
+        [StringLength(10)]
         public string Credits { get; set; }
 
         public ICollection<Enrollment> Enrollments { get; set; }

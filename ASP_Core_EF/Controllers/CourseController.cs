@@ -24,13 +24,17 @@ namespace ASP_Core_EF.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Course model=new Course();
+            model.CourseId = 0;
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult Create(Course model)
         {
             if (ModelState.IsValid)
             {
+
                 _Course.Add(model);
                 return RedirectToAction("Index");
             }
@@ -65,7 +69,15 @@ namespace ASP_Core_EF.Controllers
 
             return View(_Course.GetCourse(Id));
         }
-   
+
+        [HttpGet]
+        public IActionResult Edit(int? Id)
+         {
+            var model = _Course.GetCourse(Id);
+            return View("Create",model);
+        }
+
+
 
     }
 }

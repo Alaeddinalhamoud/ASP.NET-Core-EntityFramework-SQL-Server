@@ -19,8 +19,20 @@ namespace ASP_Core_EF.Repository
 
         public void Add(Course _Course)
         {
-            db.Courses.Add(_Course);
-            db.SaveChanges();
+            if (_Course.CourseId == 0)
+            {
+                db.Courses.Add(_Course);
+                 db.SaveChanges();
+            }
+            else
+            {
+                var dbEntity = db.Courses.Find(_Course.CourseId);
+                dbEntity.CourseName = _Course.CourseName;
+                dbEntity.Credits = _Course.Credits;
+                db.SaveChanges();
+            }
+            
+            
         }
 
         public Course GetCourse(int? Id)
